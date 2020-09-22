@@ -1,0 +1,23 @@
+extends layout.pug
+block hero
+    section.hero.is-dark.is-bold
+        .hero-body
+            .container
+                h1.title Tacos MX
+                h2.subtitle A que se te antojan
+block content
+    .container(style="flex: 1; padding: 50px 0;")
+        .columns.is-multiline
+            each menu in menuMocks
+                .column.is-one-quarter
+                    .card
+                        .card-image
+                            figure.image(style="height: 190px")
+                                img(src=menu.image style="height: 100%; object-fit: cover")
+                        .card-content
+                            p.title(style="font-size: 15px;")= menu.name
+                            .button.is-fullwidth.is-primary
+                                span.icon
+                                    i.fas.fa-shopping-cart
+                                span Comprar 
+                                  strong= `${menu.price} MXN`
